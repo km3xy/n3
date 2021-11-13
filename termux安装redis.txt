@@ -62,6 +62,9 @@ Setting up redis (6.2.4) ...
 $ redis-server//起动redis
 
 
+termux安装redis成功
+
+
 
 
 
