@@ -10,11 +10,15 @@ dpkg --configure -a
 然后pkg upgrade
 
 然后切换源
-
+8
 先安装Stone Termux管理工具
 
 
 https://gitee.com/st1020/Stone-Termux-Tool/tree/master
+
+
+https://gitee.com/st1020/
+
 
 安装
 
@@ -22,7 +26,6 @@ https://gitee.com/st1020/Stone-Termux-Tool/tree/master
 
 
 然后切换源，清华源
-
 
 
 然后pkg upgrade
