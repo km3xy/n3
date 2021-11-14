@@ -1,0 +1,68 @@
+修改PHP 加载loaded configuration file 目录
+ 
+
+在/usr/local/php/etc/目录下新建php2.ini
+
+复制php.ini 内容到php2.ini 或cp php.ini 也行。
+
+配置php-fpm 
+Usage: php [-n] [-e] [-h] [-i] [-m] [-v] [-t] [-p <prefix>] [-g <pid>] [-c <file>] [-d foo[=bar]] [-y <file>] [-D] [-F]
+  -c <path>|<file> Look for php.ini file in this directory
+  -n               No php.ini file will be used
+  -d foo[=bar]     Define INI entry foo with value 'bar'
+  -e               Generate extended information for debugger/profiler
+  -h               This help
+  -i               PHP information
+  -m               Show compiled in modules
+  -v               Version number
+  -p, --prefix <dir>
+                   Specify alternative prefix path to FastCGI process manager (default: /usr/local/php).
+  -g, --pid <file>
+                   Specify the PID file location.
+  -y, --fpm-config <file>
+                   Specify alternative path to FastCGI process manager config file.
+  -t, --test       Test FPM configuration and exit
+  -D, --daemonize  force to run in background, and ignore daemonize option from config file
+  -F, --nodaemonize
+                   force to stay in foreground, and ignore daemonize option from config file
+  -R, --allow-to-run-as-root
+                   Allow pool to run as root (disabled by default)
+　　
+
+其中：-c
+
+<path>|<file> Look for php.ini file in this directory
+
+指定ini文件的目录
+
+所以：
+
+php-fpm -c /usr/local/php/etc/php2.ini
+ 
+
+重启nginx是查看没有改变！
+
+service nginx reload
+要重启php-fpm
+
+但是提示：
+
+ERROR: An another FPM instance seems to already listen on /tmp/php-cgi.sock
+ERROR: FPM initialization failed
+所以先停止php-fpm 服务在指定php.ini 文件
+
+/etc/init.d/php-fpm stop
+php-fpm -c /usr/local/php/etc/php2.ini 
+ 
+
+-----------------------------------------------------------------------------------------
+
+ 
+
+隐藏X-Powered-By
+
+则修改 php.ini 文件 设置 expose_php = Off
+
+记得重启是重启php-fpm 而不是nginx，重启php-fpm ， 如果修改了php.ini配置目录还要重新-c 配置ini目录
+
+标签: php, Linux
