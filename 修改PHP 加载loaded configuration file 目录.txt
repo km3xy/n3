@@ -5,7 +5,8 @@
 
 复制php.ini 内容到php2.ini 或cp php.ini 也行。
 
-配置php-fpm 
+配置php-fpm 参数
+
 Usage: php [-n] [-e] [-h] [-i] [-m] [-v] [-t] [-p <prefix>] [-g <pid>] [-c <file>] [-d foo[=bar]] [-y <file>] [-D] [-F]
   -c <path>|<file> Look for php.ini file in this directory
   -n               No php.ini file will be used
@@ -57,7 +58,6 @@ php-fpm -c /usr/local/php/etc/php2.ini
 
 -----------------------------------------------------------------------------------------
 
- 
 
 隐藏X-Powered-By
 
@@ -66,3 +66,16 @@ php-fpm -c /usr/local/php/etc/php2.ini
 记得重启是重启php-fpm 而不是nginx，重启php-fpm ， 如果修改了php.ini配置目录还要重新-c 配置ini目录
 
 标签: php, Linux
+
+
+termux查找  php.ini 文件命令
+
+~ $ php -i|grep php.ini
+Configuration File (php.ini) Path => /data/data/com.termux/files/usr/lib
+~ $
+
+
+
+https://www.cnblogs.com/dcb3688/p/4607961.html
+
+
